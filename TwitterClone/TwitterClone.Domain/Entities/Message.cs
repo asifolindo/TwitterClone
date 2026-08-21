@@ -4,28 +4,22 @@ using System.Text;
 
 namespace TwitterClone.Domain.Entities
 {
-    public class Message
+    public class Message : BaseEntity
     {
-        private Guid _id;
+        
         private Guid _senderId;
         private Guid _receiverId;
         private string _content;
         private DateTime _sentAt;
         private bool _isRead;
-        private DateTime _createdAt;
-        private DateTime _modifiedAt;
+        
 
         public Message()
         {
-            _id = Guid.NewGuid();
-            _createdAt = DateTime.UtcNow;
-        }
-
-        public Guid Id
-        {
-            get { return _id; }
             
         }
+
+       
 
         public Guid SenderId
         {
@@ -55,19 +49,6 @@ namespace TwitterClone.Domain.Entities
         {
             get { return _isRead; }
             set { _isRead = value; }
-        }
-
-        public DateTime CreatedAt
-        {
-            get { return _createdAt; }
-            
-        }
-
-
-        public DateTime ModifiedAt
-        {
-            get { return _modifiedAt; }
-            set { _modifiedAt = value; }
         }
     }
 }
