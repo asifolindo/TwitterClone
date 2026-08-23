@@ -4,26 +4,20 @@ using System.Text;
 
 namespace TwitterClone.Domain.Entities
 {
-    public class Notification
+    public class Notification : BaseEntity
     {
-        private Guid _id;
+        
         private Guid _userId;
         private string _type;
         private string _message;
-        private DateTime _createdAt;
-        private DateTime _modifiedAt;
         private bool _isRead;
 
-        public Notification()
+        public Notification(string notificationType) : base(Guid.NewGuid())
         {
-            _id = Guid.NewGuid();
-            _createdAt = DateTime.UtcNow;
+            _type = notificationType;
         }
 
-        public Guid Id
-        {
-            get { return _id; }
-        }
+        
 
         public Guid UserId
         {
@@ -41,19 +35,7 @@ namespace TwitterClone.Domain.Entities
         {
             get { return _message; }
             set { _message = value; }
-        }
-
-        public DateTime CreatedAt
-        {
-            get { return _createdAt; }
-           
-        }
-
-        public DateTime ModifiedAt
-        {
-            get { return _modifiedAt; }
-            set { _modifiedAt = value; }
-        }
+        } 
 
         public bool IsRead
         {
