@@ -11,9 +11,9 @@ namespace TwitterClone.Domain.Entities
         private string _content;
 
 
-        public Tweet()
+        public Tweet():base(Guid.NewGuid())
         {
-           
+            _content = Content;
         }
 
         
@@ -28,6 +28,12 @@ namespace TwitterClone.Domain.Entities
         {
             get { return _content; }
             set { _content = value; }
+        }
+
+        public override string DescribeRecord()
+        {
+            var baseRecord = base.DescribeRecord();
+            return $"{baseRecord}, UserId: {UserId}, Content: {Content}";
         }
     }
 }

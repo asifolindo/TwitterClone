@@ -1,3 +1,4 @@
 <Solution>
+  <Project Path="Twitter.Test/Twitter.Test.csproj" Id="416d9eb5-552a-45f1-889b-97ab7f54541a" />
   <Project Path="TwitterClone.Domain/TwitterClone.Domain.csproj" />
 </Solution>

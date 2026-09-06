@@ -12,7 +12,7 @@ namespace TwitterClone.Domain.Entities
         
 
 
-        public Bookmark()
+        public Bookmark(): base(Guid.NewGuid())
         {
             
         }
@@ -30,6 +30,12 @@ namespace TwitterClone.Domain.Entities
             get { return _tweetId; }
             set { _tweetId = value; }
 
+        }
+
+        public override string DescribeRecord()
+        {
+                var baseRecord = base.DescribeRecord();
+                return $"{baseRecord}, UserId: {UserId}, TweetId: {TweetId}";
         }
     }
 }

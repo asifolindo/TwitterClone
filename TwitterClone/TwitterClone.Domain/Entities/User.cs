@@ -13,7 +13,7 @@ namespace TwitterClone.Domain.Entities
         
 
 
-        public User()
+        public User(): base(Guid.NewGuid())
         {
             
         }
@@ -38,6 +38,12 @@ namespace TwitterClone.Domain.Entities
         {
             get { return _email; }
             set { _email = value; }
+        }
+
+        public override string DescribeRecord()
+        {
+            var baseRecord = base.DescribeRecord();
+            return $"{baseRecord}, FirstName: {FirstName}, LaseName: {LastName}, Email: {Email}";
         }
     }
 }
