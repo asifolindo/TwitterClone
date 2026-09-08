@@ -13,7 +13,7 @@ namespace TwitterClone.Domain.Entities
         
 
 
-        public Retweet()
+        public Retweet(): base(Guid.NewGuid())
         {
             
         }
@@ -40,8 +40,12 @@ namespace TwitterClone.Domain.Entities
             set { _content = value; }
         }
 
-        
 
+        public override string DescribeRecord()
+        {
+            var baseRecord = base.DescribeRecord();
+            return $"{baseRecord}, UserId: {UserId}, TweetId: {TweetId}, Content: {Content}";
+        }
         
     }
 }

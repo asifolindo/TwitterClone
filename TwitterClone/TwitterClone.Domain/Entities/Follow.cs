@@ -12,7 +12,7 @@ namespace TwitterClone.Domain.Entities
         
 
 
-        public Follow()
+        public Follow(): base(Guid.NewGuid())
         {
             
         }
@@ -29,6 +29,13 @@ namespace TwitterClone.Domain.Entities
         {
             get { return _followingId; }
             set { _followingId = value; }
+        }
+
+
+        public override string DescribeRecord()
+        {
+            var baseRecord = base.DescribeRecord();
+            return $"{baseRecord}, FollowerId: {FollowerId}, FollowingId: {FollowingId}";
         }
     }
 

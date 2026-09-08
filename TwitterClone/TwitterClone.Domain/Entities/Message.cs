@@ -14,7 +14,7 @@ namespace TwitterClone.Domain.Entities
         private bool _isRead;
         
 
-        public Message()
+        public Message():base(Guid.NewGuid())
         {
             
         }
@@ -49,6 +49,12 @@ namespace TwitterClone.Domain.Entities
         {
             get { return _isRead; }
             set { _isRead = value; }
+        }
+
+        public override string DescribeRecord()
+        {
+            var baseRecord = base.DescribeRecord();
+            return $"{baseRecord}, SenderId: {SenderId}, ReceiverId: {ReceiverId}, Content: {Content}, SentAt: {SentAt}, IsRead: {IsRead}";
         }
     }
 }
